@@ -298,7 +298,7 @@ public partial class ReportSystem : BasePlugin, IPluginConfig<ReportSystemConfig
         int assists = stats.Assists;
         int score = player.Score;
 
-        string kda = deaths == 0 ? kills == 0 ? "0.00" : kills.ToString() : $"{(kills / 2.0) / deaths:F2}";
+        string kda = deaths == 0 ? kills == 0 ? "0.00" : kills.ToString() : $"{kills / deaths:F2}";
 
         return $"K: {kills} | D: {deaths}\nK/D: {kda}";
     }
@@ -441,4 +441,5 @@ public partial class ReportSystem : BasePlugin, IPluginConfig<ReportSystemConfig
         int end = input.LastIndexOf('"');
         return (start >= 0 && end > start) ? input.Substring(start + 1, end - start - 1) : string.Empty;
     }
+
 }
