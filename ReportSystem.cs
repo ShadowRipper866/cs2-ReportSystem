@@ -161,6 +161,7 @@ public partial class ReportSystem : BasePlugin, IPluginConfig<ReportSystemConfig
                         OpenReasonsMenu(ctl, capturedPlayer);
                     });
                 }
+                else if (!VisibleInMenu(player) && !Config.Debug) continue;
                 else reportMenu.AddMenuOption($"{capturedPlayer.PlayerName}", (ctl, _) =>
                 {
                     OpenReasonsMenu(ctl, capturedPlayer);
@@ -436,4 +437,5 @@ public partial class ReportSystem : BasePlugin, IPluginConfig<ReportSystemConfig
         int end = input.LastIndexOf('"');
         return (start >= 0 && end > start) ? input.Substring(start + 1, end - start - 1) : string.Empty;
     }
+
 }
